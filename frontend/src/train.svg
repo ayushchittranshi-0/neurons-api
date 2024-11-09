@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <!-- Locomotive Body -->
+  <rect x="220" y="100" width="140" height="60" fill="#2C3E50" rx="10"/>
+  
+  <!-- Locomotive Cabin -->
+  <rect x="300" y="40" width="60" height="60" fill="#2C3E50"/>
+  
+  <!-- Smokestack -->
+  <rect x="320" y="20" width="20" height="20" fill="#7F8C8D"/>
+  
+  <!-- Front Detail -->
+  <rect x="340" y="120" width="30" height="20" fill="#95A5A6"/>
+  
+  <!-- Wheels -->
+  <circle cx="250" cy="170" r="20" fill="#34495E"/>
+  <circle cx="330" cy="170" r="20" fill="#34495E"/>
+  
+  <!-- Wheel Centers -->
+  <circle cx="250" cy="170" r="8" fill="#95A5A6"/>
+  <circle cx="330" cy="170" r="8" fill="#95A5A6"/>
+  
+  <!-- Cargo Car -->
+  <rect x="40" y="100" width="160" height="60" fill="#E74C3C" rx="5"/>
+  
+  <!-- Cargo Car Wheels -->
+  <circle cx="80" cy="170" r="20" fill="#34495E"/>
+  <circle cx="160" cy="170" r="20" fill="#34495E"/>
+  
+  <!-- Wheel Centers -->
+  <circle cx="80" cy="170" r="8" fill="#95A5A6"/>
+  <circle cx="160" cy="170" r="8" fill="#95A5A6"/>
+  
+  <!-- Connector -->
+  <rect x="200" y="120" width="20" height="10" fill="#7F8C8D"/>
+  
+  <!-- Windows -->
+  <rect x="310" y="50" width="15" height="20" fill="#ECF0F1"/>
+  <rect x="330" y="50" width="15" height="20" fill="#ECF0F1"/>
+  
+  <!-- Steam -->
+  <circle cx="330" cy="15" r="5" fill="#ECF0F1" opacity="0.7"/>
+  <circle cx="335" cy="10" r="4" fill="#ECF0F1" opacity="0.5"/>
+  <circle cx="340" cy="5" r="3" fill="#ECF0F1" opacity="0.3"/>
+</svg>
