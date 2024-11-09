@@ -36,7 +36,6 @@ const ChatBot = () => {
     if (inputText.trim()) {
       const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
       
-      // Add user message
       setMessages(prev => [...prev, { 
         text: inputText, 
         isUser: true, 
@@ -75,7 +74,6 @@ const ChatBot = () => {
         setMessages(prev => [...prev, messageObject]);
 
       } catch (error) {
-        // Handle error case
         setMessages(prev => [...prev, {
           text: "Sorry, I encountered an error while searching for trains. Please try again.",
           isUser: false,

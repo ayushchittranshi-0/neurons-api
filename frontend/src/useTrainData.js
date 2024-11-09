@@ -24,7 +24,6 @@ export function useTrainData() {
                 throw new Error(data.detail?.message || 'Failed to seed data')
             }
 
-            // After successful seeding, fetch trains data again
             fetchTrains()
 
         } catch (err) {

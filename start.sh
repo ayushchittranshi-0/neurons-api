@@ -27,7 +27,7 @@ echo "======================================"
 if sudo docker compose up; then
     echo "✓ Docker containers started successfully"
 else
-    echo "✗ Error: Failed to start Docker containers"
+    echo "✗ Error: Failed to start Docker containers or Docker containers forcefully terminated"
     exit 1
 fi
 
