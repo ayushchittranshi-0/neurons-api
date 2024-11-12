@@ -21,6 +21,7 @@ chmod u+x start.sh
 ```bash
 ./start.sh
 ```
+4. Visit the url http://localhost:5173/ on your browser to load the frontend.
 
 > **Important**: If you're not running as root user, the script will prompt for your password when executing Docker commands. This is normal as Docker requires root privileges.
 

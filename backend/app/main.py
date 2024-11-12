@@ -2,7 +2,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pathlib import Path
 import json
 from .core.config import settings
-from sqlalchemy import create_engine, MetaData, Table, select, inspect, or_  
+from sqlalchemy import create_engine, MetaData, Table, select, inspect, or_, and_  
 from sqlalchemy.exc import SQLAlchemyError, ProgrammingError
 from sqlalchemy.orm import sessionmaker, Session
 from pydantic import BaseModel
@@ -219,8 +219,10 @@ def chat_response(request: ChatRequest, db: Session = Depends(get_db)):
         
         if from_station and to_station:
             trains = db.query(Train).filter(
-                Train.starts.ilike(f"%{from_station}%"),
-                Train.ends.ilike(f"%{to_station}%")
+                        and_(
+                            Train.starts.ilike(f"%{from_station}%"),
+                            Train.ends.ilike(f"%{to_station}%")
+                        )
             ).limit(10).all()
             
             if trains:
@@ -252,6 +254,23 @@ def chat_response(request: ChatRequest, db: Session = Depends(get_db)):
                 }
         
         matching_words = find_matching_words(request.input_text)
+
+        wholeQueries = []
+        wholeQueries.append(Train.train_name.ilike(f"%{request.input_text}%"))
+        wholeQueries.append(Train.starts.ilike(f"%{request.input_text}%"))
+        wholeQueries.append(Train.ends.ilike(f"%{request.input_text}%"))
+        wholeQueries.append(Train.train_no.ilike(f"%{request.input_text}%"))
+
+        trainswhole = db.query(Train).filter(
+            or_(*wholeQueries)
+        ).distinct().limit(10).all()
+
+        if trainswhole:
+            return {
+                "message": f"Found trains matching: {request.input_text}",  # Also improved the message
+                "trains": [format_train_response(train) for train in trainswhole]  # Fixed variable name
+            }
+
         if matching_words:
             queries = []
             for word in matching_words:
